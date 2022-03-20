@@ -1,5 +1,6 @@
 import 'package:chatapp_pushnotification/allProvider/auth_provider.dart';
 import 'package:chatapp_pushnotification/constants/app_constants.dart';
+import 'package:chatapp_pushnotification/screens/splash_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -39,11 +40,10 @@ class MyApp extends StatelessWidget {
                 )),
       ],
       child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: AppConstants.appTitle,
-        theme: ThemeData.dark(),
-        home: Scaffold(),
-      ),
+          debugShowCheckedModeBanner: false,
+          title: AppConstants.appTitle,
+          theme: ThemeData.dark(),
+          home: SplashPage()),
     );
   }
 }
