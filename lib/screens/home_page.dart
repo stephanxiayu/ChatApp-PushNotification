@@ -55,8 +55,8 @@ class _HomePageState extends State<HomePage> {
     if (choice.title == 'Sign Out') {
       handleSignOut();
     } else {
-      Navigator.push(context,
-          MaterialPageRoute(builder: (context) => const SettingPage()));
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => SettingPage()));
     }
   }
 
@@ -73,14 +73,13 @@ class _HomePageState extends State<HomePage> {
                 value: choice,
                 child: Row(
                   children: [
-                    Icon(choice.icon, color: ColorConstants.primaryColor),
+                    Icon(choice.icon, color: Colors.green),
                     Container(
                       width: 10,
                     ),
                     Text(
                       choice.title,
-                      style:
-                          const TextStyle(color: ColorConstants.primaryColor),
+                      style: const TextStyle(color: Colors.white),
                     ),
                   ],
                 ));

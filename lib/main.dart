@@ -1,4 +1,5 @@
 import 'package:chatapp_pushnotification/allProvider/auth_provider.dart';
+import 'package:chatapp_pushnotification/allProvider/setting_provider.dart';
 import 'package:chatapp_pushnotification/constants/app_constants.dart';
 import 'package:chatapp_pushnotification/screens/splash_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -35,15 +36,20 @@ class MyApp extends StatelessWidget {
             create: (_) => AuthProvider(
                   firebaseAuth: FirebaseAuth.instance,
                   googleSignIn: GoogleSignIn(),
-                  prefs: this.prefs,
-                  firebaseFirestore: this.firebaseFirestore,
+                  prefs: prefs,
+                  firebaseFirestore: firebaseFirestore,
                 )),
+        Provider<SettingProvider>(
+            create: (_) => SettingProvider(
+                prefs: prefs,
+                firebaseFirestore: firebaseFirestore,
+                firebaseStorage: firebaseStorage))
       ],
       child: MaterialApp(
           debugShowCheckedModeBanner: false,
           title: AppConstants.appTitle,
           theme: ThemeData.dark(),
-          home: SplashPage()),
+          home: const SplashPage()),
     );
   }
 }
